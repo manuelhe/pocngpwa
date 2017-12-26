@@ -6,9 +6,9 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { AppComponent } from './app.component';
 
 import { environment } from '../environments/environment';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { NewsComponent } from './news/news.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { NewsComponent } from './components/news/news.component';
 import { AppRoutingModule } from './/app-routing.module';
 
 @NgModule({

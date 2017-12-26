@@ -23,5 +23,17 @@
         "/assets/**"
       ]
     }
-  }]
+  }],
+  "dataGroups": [
+  {
+    "name": "news-api",
+    "urls": ["/news"],
+    "cacheConfig": {
+      "strategy": "freshness",
+      "maxSize": 20,
+      "maxAge": "2h",
+      "timeout": "10s"
+    }
+  }
+]
 }

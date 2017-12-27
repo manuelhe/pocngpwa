@@ -8,6 +8,7 @@ import { News } from '../../models/news';
   templateUrl: './news.component.html'
 })
 export class NewsComponent implements OnInit {
+  
   public news:News[];
 
   constructor(private articleService:ArticlesService) {}

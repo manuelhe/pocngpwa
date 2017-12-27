@@ -7,8 +7,9 @@ import { NewsComponent } from './components/news/news.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { MsgService } from './services/msg.service';
-import { HeaderComponent } from './components/common/header/header.component';
-import { FooterComponent } from './components/common/footer/footer.component';
+import { ArticlesService  } from './services/articles/articles.service';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 import { NewsItemComponent } from './components/news/news-item/news-item.component';
 import { NewsDetailComponent } from './components/news/news-detail/news-detail.component';
 
@@ -30,7 +31,7 @@ import { NewsDetailComponent } from './components/news/news-detail/news-detail.c
     ]),
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [MsgService],
+  providers: [MsgService,ArticlesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

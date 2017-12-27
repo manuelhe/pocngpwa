@@ -3,13 +3,10 @@ import { News } from '../../../models/news';
 
 @Component({
   selector: 'fox-news-item',
-  template: `
-    <p>
-      new-item works!
-    </p>
-  `,
-  styles: []
+  templateUrl:'./news-item-component.html',
+  styleUrls: ['./news-item-component.scss']
 })
+
 export class NewsItemComponent implements OnInit {
 
   @Input() data: News;

@@ -1,17 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { MsgService } from '../../services/msg.service';
+import { ArticlesService } from '../../services/articles/articles.service';
+import { News } from '../../models/news';
 
 @Component({
   selector: 'fox-news',
   templateUrl: './news.component.html'
 })
 export class NewsComponent implements OnInit {
-  public message: string;
+  public news:News[];
 
-  constructor(private msg:MsgService) {}
+  constructor(private articleService:ArticlesService) {}
 
   ngOnInit() {
-    this.message = this.msg.getMessage();
+    this.news = this.articleService.getArticles();
   }
 }

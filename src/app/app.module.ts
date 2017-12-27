@@ -7,11 +7,19 @@ import { NewsComponent } from './components/news/news.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { MsgService } from './services/msg.service';
+import { HeaderComponent } from './components/common/header/header.component';
+import { FooterComponent } from './components/common/footer/footer.component';
+import { NewsItemComponent } from './components/news/news-item/news-item.component';
+import { NewsDetailComponent } from './components/news/news-detail/news-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NewsComponent,
+    HeaderComponent,
+    FooterComponent,
+    NewsItemComponent,
+    NewsDetailComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'my-app'}),

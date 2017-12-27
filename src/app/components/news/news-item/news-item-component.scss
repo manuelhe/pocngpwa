@@ -1,14 +1,14 @@
 .container-news-item{
     width: 320px;
     height: 310px;
-    background-color: #ffffff;
     border: solid 1px #e4e4e4;
+
 }
 
 .image-news-item{
-  width: 296px;
+  width: 286px;
   height: 160px;
-  object-fit: contain;
+  margin: 5px 5px 15px 5px;
 }
 h1{
   width: 298px;
@@ -22,6 +22,7 @@ h1{
   letter-spacing: normal;
   text-align: left;
   color: #212121;
+  margin-bottom:25px;
 }
 
 h2{
@@ -36,6 +37,7 @@ h2{
     letter-spacing: normal;
     text-align: left;
     color: #737373;
+    
 }
 
 .hour-news-item{
@@ -46,9 +48,8 @@ h2{
     font-weight: normal;
     font-style: normal;
     font-stretch: normal;
-    line-height: 1.09;
     letter-spacing: normal;
-    text-align: left;
+    float:left;
     color: #bdbdbd;
 }
 
@@ -60,8 +61,8 @@ h2{
     font-weight: normal;
     font-style: normal;
     font-stretch: normal;
-    line-height: 1.09;
     letter-spacing: normal;
-    text-align: left;
+    text-align: right;
     color: #2592ff;
+    float:right;
   }

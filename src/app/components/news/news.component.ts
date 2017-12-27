@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import { MsgService } from '../../services/msg.service';
 
 @Component({
-  selector: 'news',
+  selector: 'fox-news',
   templateUrl: './news.component.html'
 })
 export class NewsComponent implements OnInit {

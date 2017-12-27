@@ -3,20 +3,28 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
+import { NewsComponent } from './components/news/news.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import { MsgService } from './service/msg.service';
+import { MsgService } from './services/msg.service';
+import { HeaderComponent } from './components/common/header/header.component';
+import { FooterComponent } from './components/common/footer/footer.component';
+import { NewsItemComponent } from './components/news/news-item/news-item.component';
+import { NewsDetailComponent } from './components/news/news-detail/news-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
+    NewsComponent,
+    HeaderComponent,
+    FooterComponent,
+    NewsItemComponent,
+    NewsDetailComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'my-app'}),
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full'},
+      { path: '', component: NewsComponent, pathMatch: 'full'},
       { path: 'lazy', loadChildren: './lazy/lazy.module#LazyModule'},
       { path: 'lazy/nested', loadChildren: './lazy/lazy.module#LazyModule'}
     ]),

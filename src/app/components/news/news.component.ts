@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { MsgService } from '../service/msg.service';
+import { MsgService } from '../../services/msg.service';
 
 @Component({
-  selector: 'home',
-  template: `<h3>{{ message }}</h3>`
+  selector: 'fox-news',
+  templateUrl: './news.component.html'
 })
-export class HomeComponent implements OnInit {
+export class NewsComponent implements OnInit {
   public message: string;
 
   constructor(private msg:MsgService) {}

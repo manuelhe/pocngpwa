@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { NewsComponent } from './components/news/news.component';
@@ -15,6 +14,7 @@ import { NewsDetailComponent } from './components/news/news-detail/news-detail.c
 import { StoreModule } from '@ngrx/store';
 import { HttpClientModule } from '@angular/common/http';
 import { reducers } from './reducer.factory';
+import { ROUTING } from './app.routes';
 
 @NgModule({
   declarations: [
@@ -27,11 +27,7 @@ import { reducers } from './reducer.factory';
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'my-app'}),
-    RouterModule.forRoot([
-      { path: '', component: NewsComponent, pathMatch: 'full'},
-      { path: 'lazy', loadChildren: './lazy/lazy.module#LazyModule'},
-      { path: 'lazy/nested', loadChildren: './lazy/lazy.module#LazyModule'}
-    ]),
+    ROUTING,
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
     StoreModule.forRoot(reducers),
     HttpClientModule

@@ -8,9 +8,9 @@
         <img src="../../../assets/twitter.png">
         <img src="../../../assets/menu.png">
     </div>
-    <a href="#" class="date-news-item">{{data.date | date : 'dd/mm/yyyy' }}</a>
-    <a href="#" class="date-news-item">{{data.tagName}}</a>
-    <div class="col-md-4 description">
+    <span class="hour">por</span> <span class="autor">Silvio Salverino</span><br/>
+    <a href="#" class="hour">{{data.date | date : 'dd/mm/yyyy' }}</a>
+    <div class="description">
         {{data.description}}
     </div>
 </article>

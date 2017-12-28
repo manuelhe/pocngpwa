@@ -26,8 +26,9 @@ import { reducers } from './reducer.factory';
     NewsDetailComponent,
   ],
   imports: [
-    BrowserModule.withServerTransition({appId: 'my-app'}),
+    BrowserModule.withServerTransition({appId: 'fox-app'}),
     RouterModule.forRoot([
+      { path: 'news/detail', component: NewsDetailComponent},
       { path: '', component: NewsComponent, pathMatch: 'full'},
       { path: 'lazy', loadChildren: './lazy/lazy.module#LazyModule'},
       { path: 'lazy/nested', loadChildren: './lazy/lazy.module#LazyModule'}

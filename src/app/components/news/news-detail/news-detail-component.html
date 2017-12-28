@@ -1,5 +1,16 @@
-<article>
+<fox-header></fox-header>
+<article class="container">
     <a href="#" class="tag-news-item">{{data.tagName}}</a>
-    <h1 href="#" class="tag-news-item">{{data.tagName}}</h1>
-    <h1 href="#" class="tag-news-item">{{data.tagName}}</h1>
+    <h1 href="#" class="title-news-item">{{data.title}}</h1>
+    <img [src]="data.pictureUrl" class="image-news-item">
+    <div class="social">
+        <img src="../../../assets/facebook.png">
+        <img src="../../../assets/twitter.png">
+        <img src="../../../assets/menu.png">
+    </div>
+    <a href="#" class="date-news-item">{{data.date | date : 'dd/mm/yyyy' }}</a>
+    <a href="#" class="date-news-item">{{data.tagName}}</a>
+    <div class="col-md-4 description">
+        {{data.description}}
+    </div>
 </article>

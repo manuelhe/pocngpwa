@@ -12,6 +12,9 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NewsItemComponent } from './components/news/news-item/news-item.component';
 import { NewsDetailComponent } from './components/news/news-detail/news-detail.component';
+import { StoreModule } from '@ngrx/store';
+import { HttpClientModule } from '@angular/common/http';
+import { reducers } from './reducer.factory';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,9 @@ import { NewsDetailComponent } from './components/news/news-detail/news-detail.c
       { path: 'lazy', loadChildren: './lazy/lazy.module#LazyModule'},
       { path: 'lazy/nested', loadChildren: './lazy/lazy.module#LazyModule'}
     ]),
-    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
+    StoreModule.forRoot(reducers),
+    HttpClientModule
   ],
   providers: [MsgService,ArticlesService],
   bootstrap: [AppComponent]

@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'fox-header',
   templateUrl: './header.component.html',
-  styles: []
+  styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
 

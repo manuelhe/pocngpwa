@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { News } from '../../models/news';
+import { ArticlesService } from '../../services/articles/articles.service';
+import { Article } from '../../models/articles/article.model';
 
 @Component({
   selector: 'fox-news',
@@ -8,11 +9,11 @@ import { News } from '../../models/news';
 })
 export class NewsComponent implements OnInit {
   
-  public news:News[];
+  public news:Observable<Article>;
 
-  constructor() {}
+  constructor(public articlesService: ArticlesService) {
+    this.news = this.articlesService.getArticles();
+   }
 
-  ngOnInit() {
-    //this.news = this.articleService.getArticles();
-  }
+  ngOnInit() { }
 }

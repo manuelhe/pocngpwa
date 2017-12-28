@@ -1,8 +1,8 @@
 <fox-header></fox-header>
 <section class="container">
-  <div class="row">
-    <div *ngFor="let item of news">
-       <fox-news-item [data]=item></fox-news-item> 
+    <div class="row">
+        <div *ngFor="let item of news | async">
+            <fox-news-item [data]=item></fox-news-item>
+        </div>
     </div>
-  </div>
 </section>

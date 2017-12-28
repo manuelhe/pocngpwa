@@ -1,7 +1,7 @@
-<section>
-    <div class="container" *ngFor="let item of news">
-      <div class="row">
-         <fox-news-item [data]=item></fox-news-item> 
-      </div>
+<section class="container">
+  <div class="row">
+    <div *ngFor="let item of news">
+       <fox-news-item [data]=item></fox-news-item> 
     </div>
+  </div>
 </section>

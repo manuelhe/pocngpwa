@@ -15,6 +15,7 @@ import { StoreModule } from '@ngrx/store';
 import { HttpClientModule } from '@angular/common/http';
 import { reducers } from './reducer.factory';
 import { ROUTING } from './app.routes';
+import { SeoService } from './services/seo/seo.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,11 @@ import { ROUTING } from './app.routes';
     StoreModule.forRoot(reducers),
     HttpClientModule
   ],
-  providers: [MsgService,ArticlesService],
+  providers: [
+    MsgService,
+    ArticlesService,
+    SeoService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

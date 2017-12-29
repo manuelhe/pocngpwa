@@ -20,10 +20,9 @@ export class SeoService {
 
     public setDescription(siteDescription){
       this.metaService.updateTag({
-        content: siteDescription
-      },
-       "name='description'"
-      );
+        content: siteDescription,
+        name: 'description'
+      });
     }
 
     /*
@@ -31,42 +30,37 @@ export class SeoService {
     */
     public setOgTitle(value: string) {
       this.metaService.updateTag({
-        content: value
-      },
-       "property='og:title'"
-      );
+        content: value,
+        property: 'og:title'
+      });
     }
 
     public setOgType(value: string) {
       this.metaService.updateTag({
-        content: value
-      },
-       "property='og:type'"
-      );
+        content: value,
+        porperty: 'og:type'
+      });
     }
 
     public setOgUrl(value: string) {
       this.metaService.updateTag({
-        content: value
-      },
-       "property='og:url'"
-      );
+        content: value,
+        property: 'og:url'
+      });
     }
 
     public setOgImage(value: string) {
       this.metaService.updateTag({
-        content: value
-      },
-       "property='og:image'"
-      );
+        content: value,
+        property: 'og:image'
+      });
     }
 
     public setOgDescription(value: string) {
       this.metaService.updateTag({
-        content: value
-      },
-       "property='og:description'"
-      );
+        content: value,
+        property: 'og:description'
+      });
     }
 
     /*
@@ -74,57 +68,50 @@ export class SeoService {
     */
     public setTwitterTitle(value: string) {
       this.metaService.updateTag({
-        content: value
-      },
-       "name='twitter:title'"
-      );
+        content: value,
+        name: 'twitter:title'
+      });
     }
 
     public setTwitterCard(value: string) {
       this.metaService.updateTag({
-        content: value
-      },
-       "name='twitter:card'"
-      );
+        content: value,
+        name: 'twitter:card'
+      });
     }
 
     public setTwitterSite(value: string) {
       this.metaService.updateTag({
-        content: value
-      },
-       "name='twitter:site'"
-      );
+        content: value,
+        name: 'twitter:site'
+      });
     }
 
     public setTwitterCreator(value: string) {
       this.metaService.updateTag({
-        content: value
-      },
-       "name='twitter:creator'"
-      );
+        content: value,
+        name: 'twitter:creator'
+      });
     }
 
     public setTwitterUrl(value: string) {
       this.metaService.updateTag({
-        content: value
-      },
-       "name='twitter:url'"
-      );
+        content: value,
+        name: 'twitter:url'
+      });
     }
 
     public setTwitterImage(value: string) {
       this.metaService.updateTag({
-        content: value
-      },
-       "name='twitter:image'"
-      );
+        content: value,
+        name: 'twitter:image'
+      });
     }
 
     public setTwitterDescription(value: string) {
       this.metaService.updateTag({
-        content: value
-      },
-       "name='twitter:description'"
-      );
+        content: value,
+        name: 'twitter:description'
+      });
     }
 }

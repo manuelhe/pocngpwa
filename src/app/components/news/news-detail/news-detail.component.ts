@@ -32,13 +32,13 @@ export class NewsDetailComponent implements OnInit {
   }
   private setSeoData(data:Article) {
     this.seo.setTitle(data.title);
-    this.seo.setOgTitle(data.title);
-    this.seo.setTwitterTitle(data.title);
     this.seo.setDescription(data.description);
-    this.seo.setTwitterDescription(data.description);
+    this.seo.setOgTitle(data.title);
     this.seo.setOgDescription(data.description);
-    this.seo.setTwitterImage(data.pictureUrl);
     this.seo.setOgImage(data.pictureUrl);
+    this.seo.setTwitterTitle(data.title);
+    this.seo.setTwitterDescription(data.description);
+    this.seo.setTwitterImage(data.pictureUrl);
   }
 
   ngOnInit() { }

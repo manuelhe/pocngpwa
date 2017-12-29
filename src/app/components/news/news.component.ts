@@ -9,7 +9,7 @@ import { Article } from '../../models/articles/article.model';
 })
 export class NewsComponent implements OnInit {
   
-  public news:Observable<Article>;
+  public news:Observable<Article[]>;
 
   constructor(public articlesService: ArticlesService) {
     this.news = this.articlesService.getArticles();

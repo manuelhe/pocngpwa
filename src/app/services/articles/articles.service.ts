@@ -5,11 +5,10 @@ import { Article } from '../../models/articles/article.model';
 import { AppStore } from '../../app.store';
 import { ArticlesLoad } from '../../actions/article.actions';
 import { HttpClient } from '@angular/common/http';
-import { News } from '../../models/news';
 
 @Injectable()
 export class ArticlesService {
-  public articles: Observable<Article>;
+  public articles: Observable<Article[]>;
 
   constructor(
     private store:Store<AppStore>,
@@ -41,20 +40,15 @@ export class ArticlesService {
   /**
    * getArticles
    */
-  public getArticles():Observable<Article> {
+  public getArticles():Observable<Article[]> {
     return this.articles;
   }
 
-  public getArticle():News {
-    let n = new News();
-    n.date = new Date();
-    n.description = "Mano a mano entre Barcelona y Real Madrid por Arthur";
-    n.id = 22333;
-    n.pictureUrl = "http://cdn.foxsportsla.com/sites/foxsports-la/files/img/notes/news/Vincenzo-Montella-281217.jpg";
-    n.tagName = "La Liga";
-    n.title = "Mano a mano entre Barcelona y Real Madrid por Arthur";
-    n.webUrl = "www.google.com";
-    return n;
+  public getArticle(id:number):Observable<Article> {
+    return this.articles.map(art =>{
+      let selected = art.filter(item => item.id == id);
+      return (selected.length > 0) ? selected[0] : null;
+    });
   }
 
 }

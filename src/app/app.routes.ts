@@ -9,7 +9,7 @@ const ROUTES: Routes = [
     pathMatch: 'full'
   },
   {
-     path: 'news/:slug',
+     path: 'news/:id',
      component: NewsDetailComponent
   }
 ];

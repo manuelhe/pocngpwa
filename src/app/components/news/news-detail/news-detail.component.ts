@@ -1,22 +1,46 @@
 import { Component, OnInit, Input  } from '@angular/core';
-import { News } from '../../../models/news';
 import { ArticlesService } from '../../../services/articles/articles.service';
+import { Article } from '../../../models/articles/article.model';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
+import { SeoService } from '../../../services/seo/seo.service';
 
 @Component({
   selector: 'app-new-detail',
   templateUrl:'./news-detail-component.html',
   styleUrls: ['./news-detail-component.scss']
 })
+
 export class NewsDetailComponent implements OnInit {
 
  // @Input() data: News;
- data:News;
+ data:Article;
 
- constructor(public articlesService: ArticlesService) {
-  this.data = this.articlesService.getArticle();
- }
-
-  ngOnInit() {
+ constructor(
+   private articlesService: ArticlesService,
+   private route: ActivatedRoute,
+   private seo: SeoService
+  ) {
+    this.route.params.subscribe(params => {
+      this.articlesService.getArticle(params.id)
+        .first(a => a != null)
+        .subscribe(st => {
+          this.data = st;
+          this.setSeoData(this.data);
+        });
+    });
   }
+  private setSeoData(data:Article) {
+    this.seo.setTitle(data.title);
+    this.seo.setOgTitle(data.title);
+    this.seo.setTwitterTitle(data.title);
+    this.seo.setDescription(data.description);
+    this.seo.setTwitterDescription(data.description);
+    this.seo.setOgDescription(data.description);
+    this.seo.setTwitterImage(data.pictureUrl);
+    this.seo.setOgImage(data.pictureUrl);
+  }
+
+  ngOnInit() { }
 
 }

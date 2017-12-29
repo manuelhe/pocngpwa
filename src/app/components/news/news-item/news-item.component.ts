@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { News } from '../../../models/news';
+import { Article } from '../../../models/articles/article.model';
 
 @Component({
   selector: 'fox-news-item',
@@ -9,7 +9,7 @@ import { News } from '../../../models/news';
 
 export class NewsItemComponent implements OnInit {
 
-  @Input() data: News;
+  @Input() data: Article;
 
   constructor() { }
 

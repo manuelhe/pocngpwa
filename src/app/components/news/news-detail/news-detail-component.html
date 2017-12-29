@@ -1,5 +1,6 @@
 <fox-header></fox-header>
-<article class="container">
+
+<article class="container" *ngIf="data">
     <a href="#" class="tag-news-item">{{data.tagName}}</a>
     <h1 href="#" class="title-news-item">{{data.title}}</h1>
     <img [src]="data.pictureUrl" class="image-news-item">

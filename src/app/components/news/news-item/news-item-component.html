@@ -1,6 +1,6 @@
 <article class="col container-news-item">
     <img [src]="data.pictureUrl" class="image-news-item">
-    <h1>{{data.title}}</h1>
+    <h1><a routerLink="news/{{data.id}}">{{data.title}}</a></h1>
     <a href="#" class="hour-news-item">Hace {{data.date | date : 'mm' }} min.</a>
     <a href="#" class="tag-news-item">{{data.tagName}}</a>
 </article>

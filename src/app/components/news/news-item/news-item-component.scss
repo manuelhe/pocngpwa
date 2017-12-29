@@ -1,5 +1,7 @@
 .container-news-item{
      border: solid 1px #e4e4e4;
+      width: 320px;
+  height: 266px;
 }
 
 .image-news-item{
@@ -19,33 +21,33 @@ h1{
   letter-spacing: normal;
   text-align: left;
   color: #212121;
-  margin-bottom:25px;
+  margin-bottom:20px;
 }
 
 .hour-news-item{
-    width: 72px;
-    height: 12px;
-    font-family: Helvetica;
-    font-size: 11px;
-    font-weight: normal;
-    font-style: normal;
-    font-stretch: normal;
-    letter-spacing: normal;
-    color: #bdbdbd;
-    border-right-color: grey;
-    padding-right: 5px;
-    border-right: solid 1px #e4e4e4;
+  width: 63px;
+  height: 12px;
+  font-family: Helvetica;
+  font-size: 11px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.09;
+  letter-spacing: normal;
+  float: right;
+  color: #666666;
 }
 
 .tag-news-item {
     width: 83px;
     height: 12px;
     font-family: Helvetica;
-    font-size: 11px;
-    font-weight: normal;
+    font-size: 10px;
+    font-weight: bold;
     font-style: normal;
     font-stretch: normal;
     letter-spacing: normal;
-    text-align: left;
     color: #2592ff;
+    float:left;
+     text-transform: uppercase
   }

@@ -4,5 +4,15 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  seo:{
+    title: "Fox",
+    description: "Fox Sports",
+    ogTitle: "Fox",
+    ogDescription: "Fox Sports",
+    ogImage: "assets/fox-logo.png",
+    twitterTitle: "Fox",
+    twitterDescription: "Fox Sports",
+    twitterImage: "assets/fox-logo.png"
+  }
 };

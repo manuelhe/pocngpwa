@@ -11,6 +11,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NewsItemComponent } from './components/news/news-item/news-item.component';
 import { NewsDetailComponent } from './components/news/news-detail/news-detail.component';
+import { NotfoundComponent } from './components/notfound/notfound.component';
 import { StoreModule } from '@ngrx/store';
 import { HttpClientModule } from '@angular/common/http';
 import { reducers } from './reducer.factory';
@@ -26,6 +27,7 @@ import { NgxJsonLdModule } from 'ngx-json-ld';
     FooterComponent,
     NewsItemComponent,
     NewsDetailComponent,
+    NotfoundComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'my-app'}),

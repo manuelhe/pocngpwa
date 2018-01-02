@@ -15,6 +15,7 @@ import { SeoService } from '../../../services/seo/seo.service';
 export class NewsDetailComponent implements OnInit {
 
   data:Article;
+  schema:any;
 
  constructor(
    private articlesService: ArticlesService,
@@ -27,6 +28,7 @@ export class NewsDetailComponent implements OnInit {
         .subscribe(st => {
           this.data = st;
           this.setSeoData(this.data);
+          this.setNgLd(this.data);
         });
     });
   }
@@ -41,6 +43,14 @@ export class NewsDetailComponent implements OnInit {
     this.seo.setTwitterImage(data.pictureUrl);
   }
 
+  private setNgLd(data:Article) {
+  this.schema = {
+    '@context': data.title,
+    '@type': 'WebSite',
+    'name': data.title,
+    'url': data.webUrl
+  };
+ }
   ngOnInit() { }
 
 }

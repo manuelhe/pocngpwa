@@ -13,8 +13,7 @@ import { SeoService } from '../../../services/seo/seo.service';
 
 export class NewsDetailComponent implements OnInit {
 
- // @Input() data: News;
- data:Article;
+  data:Article;
 
  constructor(
    private articlesService: ArticlesService,

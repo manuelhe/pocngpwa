@@ -19,6 +19,7 @@ import 'rxjs/add/operator/map';
 @Component({
   selector: 'app-root',
   template: `
+  <fox-header></fox-header>
   <router-outlet></router-outlet>
   `,
   styles: []

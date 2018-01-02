@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { SeoService } from '../../../services/seo/seo.service';
 
+
 @Component({
   selector: 'app-new-detail',
   templateUrl:'./news-detail-component.html',

@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { reducers } from './reducer.factory';
 import { ROUTING } from './app.routes';
 import { SeoService } from './services/seo/seo.service';
+import { NgxJsonLdModule } from 'ngx-json-ld';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { SeoService } from './services/seo/seo.service';
     ROUTING,
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
     StoreModule.forRoot(reducers),
-    HttpClientModule
+    HttpClientModule,
+    NgxJsonLdModule.forRoot()
   ],
   providers: [
     MsgService,

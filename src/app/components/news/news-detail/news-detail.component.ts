@@ -45,8 +45,8 @@ export class NewsDetailComponent implements OnInit {
 
   private setNgLd(data:Article) {
   this.schema = {
-    '@context': data.title,
-    '@type': 'WebSite',
+    '@context': 'http://schema.org',
+    '@type': 'NewsArticle',
     'name': data.title,
     'url': data.webUrl
   };

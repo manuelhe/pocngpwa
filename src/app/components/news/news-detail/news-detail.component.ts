@@ -23,13 +23,15 @@ export class NewsDetailComponent implements OnInit {
    private seo: SeoService
   ) {
     this.route.params.subscribe(params => {
-     this.articlesService.getArticle(params.id)
+ 
+       this.articlesService.getArticle(params.id)
         .first(a => a != null)
         .subscribe(st => {
           this.data = st;
           this.setSeoData(this.data);
           this.setNgLd(this.data);
-        });
+        });   
+
     });
   }
   private setSeoData(data:Article) {

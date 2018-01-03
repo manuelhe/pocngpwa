@@ -51,5 +51,8 @@ export class ArticlesService {
         return (selected.length > 0) ? selected[0] : null;
       });
   }
-
+  public loadArticle(art:Article) {
+    this.http.get('/news/'+art.id);
+     
+  }
 }

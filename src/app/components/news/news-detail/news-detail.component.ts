@@ -53,6 +53,8 @@ export class NewsDetailComponent implements OnInit {
     'url': data.webUrl
   };
  }
+ 
+
   ngOnInit() { }
 
 }

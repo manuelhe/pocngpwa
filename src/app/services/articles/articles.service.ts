@@ -45,11 +45,11 @@ export class ArticlesService {
   }
 
   public getArticle(id:number):Observable<Article> {
-    return this.articles.map(art =>{
-      if(!art) return null;
-      let selected = art.filter(item => item.id == id);
-      return (selected.length > 0) ? selected[0] : null;
-    });
+    return this.articles.first(a => a != null)
+      .map(art =>{
+        let selected = art.filter(item => item.id == id);
+        return (selected.length > 0) ? selected[0] : null;
+      });
   }
 
 }

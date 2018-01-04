@@ -6,6 +6,7 @@ import { enableProdMode } from '@angular/core';
 import * as express from 'express';
 import { join } from 'path';
 import { readFileSync } from 'fs';
+import { Response } from 'express';
 
 var compression = require('compression');
 
@@ -40,6 +41,26 @@ app.engine('html', ngExpressEngine({
   ]
 }));
 
+// app.engine('html', (_, options, callback) => {
+//   const opts: PlatformOptions = {
+//     document: template,
+//     url: options.req.url,
+//     extraProviders: [
+//         <ValueProvider>{
+//             provide: 'REQUEST',
+//             useValue: options.req
+//     },
+//         <ValueProvider>{
+//             provide: 'RESPONSE',
+//             useValue: options.req.res,
+//     }]
+//   };
+//   renderModuleFactory(AppServerModuleNgFactory, opts)
+//     .then(html => {
+//         return callback(null, html)
+//     });
+// });
+
 app.set('view engine', 'html');
 app.set('views', join(DIST_FOLDER, 'browser'));
 
@@ -53,8 +74,17 @@ app.get('*.*', express.static(join(DIST_FOLDER, 'browser'), {
 }));
 
 // ALl regular routes use the Universal engine
-app.get('*', (req, res) => {
-  res.render('index', { req });
+// app.get('*', (req, res) => {
+//   res.render('index', { req });
+// });
+
+app.get('*', (req: Request, res: Response) => {
+  res.render('index', {
+    req,
+    res
+  });
+}, (err: Error, html: string, res: Response) => {
+  res.status(html ? 200 : 404).send(html || err.message);
 });
 
 // Start up the Node server

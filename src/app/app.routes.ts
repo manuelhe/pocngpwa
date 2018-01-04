@@ -11,10 +11,13 @@ const ROUTES: Routes = [
     pathMatch: 'full'
   },
   {
-     path: 'news/:id',
-     component: NewsDetailComponent
+    path: 'news/:id',
+    component: NewsDetailComponent
   },
-  {path: '**', component: NotfoundComponent}
+  {
+    path: '**',
+    component: NotfoundComponent
+  }
 ];
 
 export const ROUTING = RouterModule.forRoot(ROUTES);

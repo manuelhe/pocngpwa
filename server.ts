@@ -41,26 +41,6 @@ app.engine('html', ngExpressEngine({
   ]
 }));
 
-// app.engine('html', (_, options, callback) => {
-//   const opts: PlatformOptions = {
-//     document: template,
-//     url: options.req.url,
-//     extraProviders: [
-//         <ValueProvider>{
-//             provide: 'REQUEST',
-//             useValue: options.req
-//     },
-//         <ValueProvider>{
-//             provide: 'RESPONSE',
-//             useValue: options.req.res,
-//     }]
-//   };
-//   renderModuleFactory(AppServerModuleNgFactory, opts)
-//     .then(html => {
-//         return callback(null, html)
-//     });
-// });
-
 app.set('view engine', 'html');
 app.set('views', join(DIST_FOLDER, 'browser'));
 
@@ -74,10 +54,6 @@ app.get('*.*', express.static(join(DIST_FOLDER, 'browser'), {
 }));
 
 // ALl regular routes use the Universal engine
-// app.get('*', (req, res) => {
-//   res.render('index', { req });
-// });
-
 app.get('*', (req: Request, res: Response) => {
   res.render('index', {
     req,

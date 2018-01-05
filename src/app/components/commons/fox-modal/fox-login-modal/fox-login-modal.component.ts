@@ -1,8 +1,8 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { ModalDirective } from 'ngx-bootstrap/modal';
-import { globals } from '_constants';
-import { GeolocationService } from 'app/services/geolocation/geolocation.service';
-import { LocationModel } from 'app/models/fox-location/location.model';
+import { globals } from '../../../../../_constants';
+import { LocationModel } from '../../../../models/fox-location/location.model';
+import { GeolocationService } from '../../../../services/geolocation/geolocation.service';
 
 @Component({
   selector: 'fox-login-modal',

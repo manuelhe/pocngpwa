@@ -1,0 +1,65 @@
+/* Variables */
+/* Bootstrap variables */
+@import "~bootstrap/scss/variables";
+
+/* Paths */
+$ionicons-font-path: "~ionicons/dist/fonts";
+$assets-path:        "/assets/";
+
+/* Body related variables */
+$body-for-fixed-header-padding: 64px;
+
+/* Radius */
+$radius-2: 2px;
+$radius-3: 3px;
+$radius-5: 5px;
+
+/* Colors */
+$fox-txt-primary-color:      #007AFF;
+$fox-txt-primary-dark-color: #0071AB;
+$fox-txt-title-color:        #303030;
+
+$btn-primary-color:          $white;
+$btn-primary-bg:             $fox-txt-primary-color;
+$btn-primary-border:         $btn-primary-bg;
+
+$btn-secondary-color:        #8B9FB0;
+$btn-secondary-bg:           #001C36;
+$btn-secondary-border:       #21406B;
+
+$fox-background-color:       #00203d;
+$bg-primary:                 $btn-primary-bg;
+$bg-secondary:               rgba(0, 0, 0, .8);
+
+/* Sizes */
+$size-10: 10px;
+$size-11: 11px;
+$size-12: 12px;
+$size-13: 13px;
+$size-14: 14px;
+$size-15: 15px;
+$size-16: 16px;
+$size-17: 17px;
+$size-18: 18px;
+$size-19: 19px;
+$size-20: 20px;
+$size-21: 21px;
+$size-22: 22px;
+$size-23: 23px;
+$size-24: 24px;
+$size-25: 25px;
+$size-32: 32px;
+
+/* Booystrap override */
+
+// Grid containers
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 1024px,
+  xl: 1280px
+);
+
+// Navbar
+$navbar-border-radius: 0;
+$navbar-padding-y:     12px;

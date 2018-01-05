@@ -1,6 +1,6 @@
 import { FoxUserModel } from '../../models/fox-user/fox-user.model';
 import { FOX_CONSTANTS } from '../common/fox-constants';
-import { Action } from '@ngrx/store';
+import { UserActions } from '../../actions/user.actions';
 
 const initialUserState: FoxUserModel = {
   loggedin: false,
@@ -54,7 +54,7 @@ const initialUserState: FoxUserModel = {
   }
 };
 
-export function FoxUserReducer(state: FoxUserModel, action: Action): FoxUserModel {
+export function FoxUserReducer(state: FoxUserModel, action: UserActions): FoxUserModel {
   let userState = state;
 
   switch (action.type) {

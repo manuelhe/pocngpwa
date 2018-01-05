@@ -6,6 +6,7 @@ import { enableProdMode } from '@angular/core';
 import * as express from 'express';
 import { join } from 'path';
 import { readFileSync } from 'fs';
+import { Response } from 'express';
 
 var compression = require('compression');
 
@@ -53,8 +54,13 @@ app.get('*.*', express.static(join(DIST_FOLDER, 'browser'), {
 }));
 
 // ALl regular routes use the Universal engine
-app.get('*', (req, res) => {
-  res.render('index', { req });
+app.get('*', (req: Request, res: Response) => {
+  res.render('index', {
+    req,
+    res
+  });
+}, (err: Error, html: string, res: Response) => {
+  res.status(html ? 200 : 404).send(html || err.message);
 });
 
 // Start up the Node server

@@ -1,0 +1,15 @@
+:host {
+  img {
+    max-width: 100%;
+    max-height: 40px;
+  }
+}
+
+:host-context(.channels-info) {
+  top: 10px !important;
+  right: 10px !important;
+
+  img {
+    max-height: 24px;
+  }
+}

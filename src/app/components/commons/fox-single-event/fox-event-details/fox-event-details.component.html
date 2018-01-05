@@ -1,0 +1,18 @@
+<div class="details p-2">
+  <span
+   class="event-is-live badge badge-sm badge-primary rounded"
+   *ngIf="isLive">{{ 'live' | translate }}</span>
+
+  <span
+   class="event-is-premium badge badge-sm badge-default rounded"
+   *ngIf="event.authLevel == 'premium'">{{ 'premium' | translate }}</span>
+
+  <span
+   class="event-time-and-channel"
+   (click)="onClick()">{{eventTime}} | {{event.channel_info.display_name}}</span>
+
+  <h3 class="event-title my-1" title="{{event.title || event.channel_info.display_name}}"  ellipsisContent ellipsisLines="2" #eventName>{{event.title || event.channel_info.display_name}}</h3>
+
+  <span
+   class="event-type">{{event.label || 'Show'}}</span>
+</div>

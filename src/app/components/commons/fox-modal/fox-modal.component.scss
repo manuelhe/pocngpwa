@@ -1,0 +1,28 @@
+@import "../../../../_variables.scss";
+
+:host {
+  .modal-dialog {
+    max-width: 569px;
+  }
+  .modal-content {
+    border: 0;
+    border-radius: 0;
+  }
+
+  .close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    opacity: 1;
+    text-shadow: none;
+    z-index: 10;
+
+    .icon {
+      display: block;
+      color: $btn-primary-bg;
+      width: 25px;
+      height: 25px;
+      line-height: 25px;
+    }
+  }
+}

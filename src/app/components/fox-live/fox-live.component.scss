@@ -1,0 +1,133 @@
+/* Variables */
+$single-event-h: 180px;
+
+$section-title-color: #303030;
+$section-title-size: 19px;
+
+$carousel-width: 610px;
+$carousel-height: 372px;
+$carousel-arrow-top-pos: -210px;
+$carousel-arrow-size: 30px;
+$carousel-arrow-h: 50px;
+$carousel-arrow-left-url: '/assets/images/live/arrow-left.png';
+$carousel-arrow-w: 30px;
+$carousel-arrow-right-url: '/assets/images/live/arrow-right.png';
+
+$strip-events-h: 320px;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #F5F5F5;
+
+  .btn {
+    padding: 15px 20px !important;
+  }
+
+  & .row {
+    width: 100%;
+
+    & .carousel {
+      position: relative;
+      margin: -5px 0 0 0 !important;
+
+      & /deep/ ks-swiper-slide {
+        height: calc( 100vw / 2.57 * 0.6);
+      }
+
+      .carousel-placeholder {
+        height: calc( 100vw / 2.57 * 0.5625);
+        width: 100%;
+        margin: 23px 0;
+        overflow: hidden;
+        background-color: #EDEDEE;
+      }
+    }
+  }
+
+  .row > .col-12 {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .few-container {
+    display: flex;
+    padding: 20px 0;
+
+    .card-separator {
+      padding: 0 10px;
+    }
+    .single-card {
+      width: 620px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+
+.carousel-container {
+  > .loader {
+    height: $carousel-height;
+    text-align: center;
+  }
+  .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    height: $carousel-arrow-h;
+    width: $carousel-arrow-w;
+    background-size: $carousel-arrow-size;
+    background-repeat: no-repeat;
+    z-index: 1;
+
+    &-left {
+      background-image: url($carousel-arrow-left-url);
+      left: 10px;
+    }
+
+    &-right {
+      background-image: url($carousel-arrow-right-url);
+      right: 10px;
+    }
+  }
+}
+.swiper-slide {}
+
+/deep/ .swiper-slide > div {
+  height: 100%;
+  width: 100%;
+}
+
+.section-title {
+  > span {
+    color: $section-title-color;
+    font-size: $section-title-size;
+    margin-left: 10px;
+    width: 600px;
+  }
+}
+
+@media (max-width: 500px) {
+  fox-single-event {
+    width: 100%;
+    height: $single-event-h;
+    padding: 0;
+  }
+  .section-title {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media (max-width: 576px) {
+  .shows-container {
+    width: auto;
+    height: auto !important;
+  }
+}
+@media (min-width: 768px) {
+  .section-title {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

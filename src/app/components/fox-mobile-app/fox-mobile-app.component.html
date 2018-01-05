@@ -1,0 +1,43 @@
+<div
+  *ngIf="loading"
+  class="placeholder">
+  <fa
+    name='circle-o-notch'
+    size='2'
+    spin=true></fa>
+</div>
+
+<div
+  *ngIf="!loading && event"
+  class="event-app-holder">
+
+  <div class="event-media-holder">
+    <img
+      [src]="event.image.url | resize: 640"
+      [alt]="event.title">
+    <div class="gradient-mask"></div>
+  </div>
+
+  <div class="event-info">
+    <div class="event-details">
+      <h1>{{event.title}}</h1>
+      <h2>Disfruta este contenido en FOX Sports APP</h2>
+    </div>
+
+    <div class="apps-actions">
+      <a
+        [href]="appStoreUrl | safeUrl"
+        class="btn btn-primary btn-lg"
+        role="button">
+        <span>{{ 'download_mobile' | translate }}</span>
+      </a>
+
+      <a
+        [href]="appUrl | safeUrl"
+        class="btn btn-primary btn-lg"
+        role="button">
+        <span>{{ 'open_app' | translate }}</span>
+      </a>
+    </div>
+  </div>
+</div>

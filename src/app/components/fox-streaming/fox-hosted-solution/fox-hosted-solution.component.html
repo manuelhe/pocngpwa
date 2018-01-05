@@ -1,0 +1,3 @@
+<div class="container hosted-solution-container">
+  <iframe [src]="hostedSolutionUrl | safeUrl" width="100%" height="891px" frameborder="0" *ngIf="hostedSolutionUrl" (load)="onIframeLoad($event)"></iframe>
+</div>

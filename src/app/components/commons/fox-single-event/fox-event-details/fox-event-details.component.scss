@@ -1,0 +1,121 @@
+@import "../../../../../_variables.scss";
+@import "~bootstrap/scss/bootstrap";
+
+@mixin basic-linear-gradient($fromColor, $toCollor, $rotation) {
+  background: -moz-linear-gradient($rotation, $fromColor 37%, $toCollor 100%);
+  background: -webkit-gradient(linear, left bottom, right top, color-stop(37%, $fromColor), color-stop(100%, $toCollor));
+  background: -webkit-linear-gradient($rotation, $fromColor 37%, $toCollor 100%);
+  background: -o-linear-gradient($rotation, $fromColor 37%, $toCollor 100%);
+  background: -ms-linear-gradient($rotation, $fromColor 37%, $toCollor 100%);
+  background: linear-gradient($rotation, $fromColor 37%, $toCollor 100%);
+}
+
+.details {
+  h3.event-title {
+    font-weight: normal;
+  }
+  .event-type {
+    text-transform: uppercase;
+    font-size: $size-11;
+  }
+
+  :host-context(.fulldisplay) {
+    .event-time-and-channel {
+      display: none;
+    }
+
+    h3.event-title {
+      margin: 8px 0 4px !important;
+      color: $white;
+      font-size: $size-17;
+      line-height: $size-19;
+    }
+
+    .event-type {
+      display: block;
+      color: $white;
+    }
+  
+    .badge {
+      font-size: 10px;
+      font-weight: normal;
+      padding: 7px 10px;
+      border-radius: 2px;
+    }
+
+    .event-is-live {}
+    .event-is-premium {
+      background: rgba(0,0,0,.9);
+    }
+
+  }
+
+  :host-context(.channels-info .fulldisplay) {
+    .event-is-live {
+      display: none;
+    }
+
+    .event-is-premium {
+      position: absolute;
+      top: -90px;
+    }
+
+    h3.event-title {
+      font-size: 15px;
+    }
+
+    .event-type {
+      font-size: 11px;
+      font-weight: 500;
+      color: #0071AB;
+    }
+  }
+
+  :host-context(.carddisplay) {
+    .details {
+      padding: 0 !important;
+
+      .event-is-premium {
+        display: none;
+      }
+
+      .event-time-and-channel {
+        .event-is-premium {
+          display: initial;
+        }
+
+        display: block;
+        font-size: $size-11;
+        font-weight: 500;
+        line-height: $size-13;
+        color: $fox-txt-primary-color;
+        text-transform: uppercase;
+      }
+
+      h3.event-title {
+        color: $fox-txt-title-color;
+        font-size: $size-15;
+        max-height: calc(21px * 2);
+        overflow: hidden;
+        line-height: 21px;
+        
+        @include media-breakpoint-down(sm) {
+          font-weight: 400;
+          font-size: $size-13;
+        }
+      }
+
+      .event-type {
+        display: block;
+        color: $fox-txt-primary-dark-color;
+        font-size: $size-10;
+        font-weight: 500;
+        text-transform: uppercase;
+        @include media-breakpoint-down(sm) {
+          font-size: $size-10;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+}

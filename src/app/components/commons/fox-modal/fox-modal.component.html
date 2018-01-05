@@ -1,0 +1,21 @@
+<div class="modal-dialog modal-md">
+  <div class="modal-content">
+
+    <button type="button" class="close" aria-label="Close" (click)="close()">
+      <span
+       aria-hidden="true"
+       class="icon ion-md-close size-16"></span>
+    </button>
+
+    <div
+     class="modal-header"
+     *ngIf="hasTitle()">
+      <h4 class="modal-title pull-left">{{title}}</h4>
+    </div>
+
+    <div class="modal-body">
+      <ng-content></ng-content>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<fox-modal
+ bsModal
+ #foxLogin="bs-modal"
+ tabindex="-1"
+ class="modal fade"
+ role="dialog"
+ aria-hidden="true"
+ (onHide)="reset()"
+ (onClose)="close()">
+  <div *ngIf="loginUrl">
+    <iframe [src]="loginUrl | safeUrl" frameborder="0"></iframe>
+  </div>
+</fox-modal>

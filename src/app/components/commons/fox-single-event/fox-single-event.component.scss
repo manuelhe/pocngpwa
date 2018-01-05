@@ -1,0 +1,175 @@
+@import "../../../../variables";
+@import "~bootstrap/scss/bootstrap";
+@mixin basic-linear-gradient($fromColor, $toCollor, $rotation) {
+  background: -moz-linear-gradient($rotation, $fromColor 37%, $toCollor 100%);
+  background: -webkit-gradient(linear, left bottom, right top, color-stop(37%, $fromColor), color-stop(100%, $toCollor));
+  background: -webkit-linear-gradient($rotation, $fromColor 37%, $toCollor 100%);
+  background: -o-linear-gradient($rotation, $fromColor 37%, $toCollor 100%);
+  background: -ms-linear-gradient($rotation, $fromColor 37%, $toCollor 100%);
+  background: linear-gradient($rotation, $fromColor 37%, $toCollor 100%);
+}
+
+:host {
+  @include media-breakpoint-down(sm) {
+    padding: 0 !important;
+    margin-top: -1px !important;
+  }
+
+  .single-event-wrap {
+    .single-event-inner {
+      position: relative;
+
+      .thumbnail-container {
+        position: relative;
+        background-color: #EDEDEE;
+
+        .hidden {
+          display: none;
+        }
+
+        .loading-auth {
+          background: rgba(0,0,0,.5);
+          opacity: 0;
+          position: absolute;
+          color: $white;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          padding: 10px;
+        }
+
+        .loading-auth {
+          opacity: 1;
+        }
+        .spinner {
+          width: 54px;
+          height: 54px;
+          background-color: rgba(0,0,0,.5);
+          cursor: pointer;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-sizing: border-box;
+          z-index: 1005;
+        }
+        :host-context(.channels-info) {
+          .spinner {
+            width: 35px !important;
+            height: 35px !important;
+
+            .icon.size-m {
+              font-size: 15px !important;
+              line-height: 15px !important;
+            }
+          }
+        }
+      }
+    }
+
+    &.fulldisplay {
+      padding: 0;
+
+      .thumbnail-container {
+
+        & .event-thumbnail {
+          width: 100%;
+          height: 100%;
+        }
+
+        fox-channel {
+          position: absolute;
+          max-height: 40px;
+          right: 20px;
+          top: 20px;
+        }
+      }
+
+      .details-inner {
+        @include basic-linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.9), 180deg);
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        fox-event-details {
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+        }
+      }
+
+      .empty {
+        height: 210px;
+      }
+    }
+
+    &.carddisplay {
+      height: 100%;
+
+      @include media-breakpoint-up(sm) {
+        border: none;
+        box-shadow: 1px 1px 1px 0 rgba(0,0,0,0.1);
+        transition: box-shadow .3s ease;
+
+        &:hover {
+          box-shadow: 3px 3px 3px 0 rgba(0,0,0,0.1);
+          transition: box-shadow .3s ease;
+        }
+      }
+
+      @include media-breakpoint-down(sm) {
+        padding: 0;
+      }
+
+      .single-event-inner {
+        height: 100%;
+
+        .thumbnail-container {
+          @include media-breakpoint-down(xs) {
+            height: 80px;
+            width: 106px;
+            float: left;
+            margin: 10px;
+
+            img {
+              height: 100%;
+              width: 100%;
+              object-fit: cover;
+            }
+          }
+
+          fox-channel {
+            position: absolute;
+            width: 51px;
+            right: 10px;
+            top: 10px;
+          }
+        }
+
+        .details-inner {
+          padding: 14px 10px 10px 10px;
+          height: 108px;
+
+          @include media-breakpoint-down(sm) {
+            padding: 9px 10px;
+            height: 100px;
+          }
+        }
+
+        .empty {
+          height: 150px;
+          width: 100%;
+
+          @include media-breakpoint-down(xs){
+            height: 80px;
+            width: 106px;
+          }
+        }
+      }
+    }
+  }
+}

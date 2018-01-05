@@ -1,0 +1,58 @@
+<section class="container">
+  <div class="row">
+    <div class="col-12 streaming-banner">
+      <fox-dfp-ad
+        [name]="'live'"
+        [height]="50"
+        [width]="960"></fox-dfp-ad>
+    </div>
+
+    <div
+      class="col-auto streaming-player"
+      *ngIf="!pageLoading">
+      <h5 *ngIf="event">{{event.title}}</h5>
+      <h5 *ngIf="!event && (streamConfiguration | async)">{{'non_available' | translate}}</h5>
+      <fox-player *ngIf="(streamConfiguration | async)">
+      </fox-player>
+    </div>
+    <div
+      class="col-auto streaming-player placeholder"
+      *ngIf="pageLoading">
+      <h5>Loading</h5>
+      <div class="player-placeholder"></div>
+    </div>
+
+    <div class="channels-info">
+
+      <div class="col-12 px-0 channels-info-header">
+        <span>{{ 'more_live' | translate }}</span>
+        <a href="/">{{ 'complete_programming' | translate }}</a>
+      </div>
+
+      <perfect-scrollbar
+        class="container col-12 px-0 channel-list"
+        [config]="config">
+        <div
+          class="col-12 px-0 placeholders"
+          *ngIf="pageLoading">
+          <div class="event-placeholder"></div>
+          <div class="event-placeholder"></div>
+          <div class="event-placeholder"></div>
+        </div>
+
+        <div
+          class="col-12 px-0 img-row"
+          *ngFor="let event of eventsLive">
+          <fox-single-event
+            (click)="playEvent(event)"
+            [loading]="false"
+            [showAs]="'fulldisplay'"
+            [isLive]="true"
+            [event]="event">
+          </fox-single-event>
+        </div>
+      </perfect-scrollbar>
+    </div>
+
+  </div>
+</section>

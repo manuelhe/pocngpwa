@@ -1,0 +1,99 @@
+<section class="container" *ngIf="!isEmpty">
+  <div class="row">
+    <h3 class="col-12">{{title}}</h3>
+  </div>
+
+  <div
+   *ngIf="events"
+   class="hidden-xs-down">
+    <ks-swiper-container
+     [options]="carouselOptions">
+      <ks-swiper-slide
+       class="col-xs-12 col-sm-4 col-lg-3"
+       *ngFor="let event of events">
+
+        <fox-single-event
+         (click)="playEvent(event)"
+         [loading]="false"
+         [showAs]="showAs"
+         [isLive]="isLive"
+         [event]="event">
+        </fox-single-event>
+
+      </ks-swiper-slide>
+
+    </ks-swiper-container>
+
+    <div class="arrow arrow-left icon ion-ios-arrow-back" (click)="movePrev()"></div>
+    <div class="arrow arrow-right icon ion-ios-arrow-forward" (click)="moveNext()"></div>
+  </div>
+
+  <div
+   *ngIf="events"
+   class="row hidden-sm-up">
+    <fox-single-event
+      class="col-sm-12"
+      *ngFor="let event of events"
+      (click)="playEvent(event)"
+      [loading]="false"
+      [showAs]="showAs"
+      [isLive]="isLive"
+      [event]="event">
+    </fox-single-event>
+  </div>
+
+</section>
+
+<section class="container" *ngIf="isEmpty">
+  <div class="row">
+    <h3 class="col-12">{{title}}</h3>
+  </div>
+
+  <div class="hidden-xs-down desktop-strip row">
+    <!-- Desktop -->
+    <fox-single-event
+      class="col-xs-12 col-sm-4 col-lg-3"
+      [showAs]="showAs"
+      [isEmpty]="true">
+    </fox-single-event>
+    <fox-single-event
+      class="col-xs-12 col-sm-4 col-lg-3"
+      [showAs]="showAs"
+      [isEmpty]="true">
+    </fox-single-event>
+    <fox-single-event
+      class="col-xs-12 col-sm-4 col-lg-3"
+      [showAs]="showAs"
+      [isEmpty]="true">
+    </fox-single-event>
+    <fox-single-event
+      class="col-xs-12 col-sm-4 col-lg-3 hidden-md-down"
+      [showAs]="showAs"
+      [isEmpty]="true">
+    </fox-single-event>
+  </div>
+
+  <div class="row hidden-sm-up mobile-strip">
+    <!-- Mobile -->
+    <fox-single-event
+      class="col-sm-12"
+      [showAs]="showAs"
+      [isEmpty]="true">
+    </fox-single-event>
+    <fox-single-event
+      class="col-sm-12"
+      [showAs]="showAs"
+      [isEmpty]="true">
+    </fox-single-event>
+    <fox-single-event
+      class="col-sm-12"
+      [showAs]="showAs"
+      [isEmpty]="true">
+    </fox-single-event>
+    <fox-single-event
+      class="col-sm-12"
+      [showAs]="showAs"
+      [isEmpty]="true">
+    </fox-single-event>
+  </div>
+</section>

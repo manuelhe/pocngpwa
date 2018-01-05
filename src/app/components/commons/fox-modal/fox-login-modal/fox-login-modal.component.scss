@@ -1,0 +1,16 @@
+@import "../../../../../variables";
+
+/deep/ fox-modal {
+  z-index: 99999 !important;
+
+  .modal-content,
+  .modal-body {
+    padding: 0;
+    position: relative;
+  }
+
+  .modal-content iframe {
+    width: 569px;
+    height: 606px;
+  }
+}

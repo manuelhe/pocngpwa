@@ -1,0 +1,60 @@
+<div
+  *ngIf="!isEmpty"
+  class="single-event-wrap"
+  [ngClass]="{'carddisplay card rounded-0': showAs == 'carddisplay', 'fulldisplay': showAs == 'fulldisplay'}">
+  <div class="single-event-inner">
+
+    <div class="thumbnail-container">
+      <img style="display: none;"
+           [src]="event.image.url | resize: (showAs == 'fulldisplay' ? 640 : 320)"
+          (error)="changeImgOnError()" />
+      <img  class="event-thumbnail img-fluid"
+       [ngClass]="{'card-img-top rounded-0': showAs == 'carddisplay'}"
+       [src]="'/assets/images/empty-bg.png'"
+       [lazyLoad]="event.image.url | resize: (showAs == 'fulldisplay' ? 640 : 320)"
+       [errorImage]="errorImg"
+       [offset]="imgOffset">
+
+      <fox-channel
+        *ngIf="!(mobileInfoService.isMobile() && showAs == 'carddisplay') && event.channel_info.logo_picture"
+        [event]="event">
+      </fox-channel>
+
+      <div class="loading-auth" *ngIf="loading">
+        <img class="text-center center icon size-m spinner" [src]="'/assets/images/spinner.gif'" />
+      </div>
+
+    </div>
+
+    <div
+      class="details-inner"
+      [ngClass]="{'card-block': showAs == 'carddisplay'}">
+
+      <fox-event-details [isLive]="isLive && showAs == 'fulldisplay'" [event]="event">
+      </fox-event-details>
+
+      <fox-btn-get-player *ngIf="showAs == 'fulldisplay' && !loading" [event]="event">
+      </fox-btn-get-player>
+    </div>
+  </div>
+</div>
+
+<div
+  *ngIf="isEmpty"
+  class="single-event-wrap"
+  [ngClass]="{'carddisplay card rounded-0': showAs == 'carddisplay', 'fulldisplay': showAs == 'fulldisplay'}">
+  <div class="single-event-inner">
+    <div class="thumbnail-container empty">
+      <img
+        class="event-thumbnail img-fluid"
+        [ngClass]="{'card-img-top rounded-0': showAs == 'carddisplay'}"
+        [src]="'assets/images/empty-bg.png'"
+        (error)="getDefault()">
+    </div>
+    <div
+      class="details-inner"
+      [ngClass]="{'card-block': showAs == 'carddisplay'}">
+    </div>
+  </div>
+
+</div>

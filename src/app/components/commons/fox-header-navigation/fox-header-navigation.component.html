@@ -1,0 +1,170 @@
+<!-- Header -->
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-fox fixed-top">
+  <!-- Tablet Portrait and mobile navbar -->
+  <div class="container-fluid hidden-lg-up p-0">
+    <div class="row">
+      <div class="col-3">
+        <a
+         [attr.href]="navigationLinks.home"
+         class="navbar-brand logo text-hide">
+         FOX Sports
+        </a>
+      </div>
+
+      <div class="col-6">
+        <h6 class="screen-title">{{ eventTitle || 'live' | translate }}</h6>
+      </div>
+
+      <div class="col-3">
+        <a
+         class="btn open-mobile-nav mr-4 border-0 icon ion-md-menu px-0 float-right"
+         role="button" (click)="toggleBurger()"></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tablend landscape and desktop navbar -->
+  <div class="container hidden-md-down">
+    <a
+     [attr.href]="navigationLinks.home"
+     class="navbar-brand logo text-hide">
+     FOX Sports
+    </a>
+
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a
+         [routerLink]="['/']"
+         class="nav-link">{{ 'live' | translate }}</a>
+      </li>
+      <li class="nav-item">
+        <a
+         [attr.href]="navigationLinks.news"
+         class="nav-link">{{ 'news' | translate }}</a>
+      </li>
+      <li class="nav-item">
+        <a
+         [attr.href]="navigationLinks.videos"
+         class="nav-link">{{ 'videos' | translate }}</a>
+      </li>
+      <li class="nav-item">
+        <a
+         [attr.href]="navigationLinks.blogs"
+         class="nav-link">{{ 'blogs' | translate }}</a>
+      </li>
+      <li class="nav-item">
+        <a
+         [attr.href]="navigationLinks.today"
+         class="nav-link">{{ 'today' | translate }}</a>
+      </li>
+      <li class="nav-item">
+        <a
+         [attr.href]="navigationLinks.photos"
+         class="nav-link">{{ 'photos' | translate }}</a>
+      </li>
+      <li class="nav-item">
+        <a
+         [attr.href]="navigationLinks.competition"
+         class="nav-link">{{ 'competition' | translate }}</a>
+      </li>
+      <li class="nav-item">
+        <a
+         [attr.href]="navigationLinks.appDownload"
+         class="nav-link">{{ 'download_mobile' | translate }}</a>
+      </li>
+    </ul>
+
+    <div *ngIf="!isMobile" class="form-inline">
+      <a class="btn btn-primary btn-md login" role="button"
+       *ngIf="user && !user.loggedin" (click)="showLogin()">
+        <span>{{ 'login' | translate }}</span>
+      </a>
+
+
+      <div *ngIf="user && user.loggedin">
+        <a id="userBtn" class="btn btn-primary btn-md userBtn" role="button"
+         [popover]="logout" #logoutPopover="bs-popover" placement="bottom" triggers="">
+          <span>{{user.rawUser.profile.firstName}}</span>
+        </a>
+
+        <ng-template #logout>
+          <div class="popover-title">
+            <h3>{{(user.rawUser.profile.firstName + ' ' + user.rawUser.profile.lastName).toLowerCase()}}</h3>
+            <span>{{user.rawUser.identityProvider.description}} {{user.rawUser.identityProvider.referenceID}}</span>
+            <span>ID: {{user.rawUser.subscriberID}}</span>
+          </div>
+          <div class="popover-footer">
+            <a routerLink="/logout">{{ 'logout' | translate }}</a>
+          </div>
+        </ng-template>
+
+      </div>
+    </div>
+
+    <div
+      *ngIf="helpdeskUrl"
+      class="nav-btns">
+      <span class="nav-btn">
+        <a
+          [href]="helpdeskUrl"
+          target="_blank"
+          class="nvbtn circle helpdesk"></a>
+      </span>
+    </div>
+
+  </div>
+</nav>
+
+<aside class="sidemenu" [ngClass]="{'is-open': showBurgerMenu}">
+  <section class="sidemenu-top">
+    <button
+     class="toggle-sidebar"
+     (click)="toggleBurger()">
+    </button>
+  </section>
+  <div class="sidemenu-nav">
+    <ul>
+      <li class="sub-menu-title">
+        {{ 'sections' | translate }}
+      </li>
+      <li class="item">
+        <a
+        [routerLink]="['/']">{{ 'live' | translate }}</a>
+      </li>
+      <li class="item">
+        <a
+         [attr.href]="navigationLinks.news">{{ 'news' | translate }}</a>
+      </li>
+      <li class="item">
+        <a
+         [attr.href]="navigationLinks.videos">{{ 'videos' | translate }}</a>
+      </li>
+      <li class="item">
+        <a
+         [attr.href]="navigationLinks.blogs">{{ 'blogs' | translate }}</a>
+      </li>
+      <li class="item">
+        <a
+         [attr.href]="navigationLinks.today">{{ 'today' | translate }}</a>
+      </li>
+      <li class="item">
+        <a
+         [attr.href]="navigationLinks.today">{{ 'photos' | translate }}</a>
+      </li>
+      <li class="item">
+        <a
+         [attr.href]="navigationLinks.competition">{{ 'competition' | translate }}</a>
+      </li>
+      <li class="item">
+        <a
+         [attr.href]="navigationLinks.appDownload">{{ 'download_mobile' | translate }}</a>
+      </li>
+      <li
+        *ngIf="helpdeskUrl"
+        class="item">
+        <a
+         [href]="helpdeskUrl">{{ helpdeskTxt }}</a>
+      </li>
+    </ul>
+  </div>
+</aside>

@@ -1,0 +1,268 @@
+<section class="container-fluid mx-0 px-0">
+  <!-- BANNER -->
+  <div class="row banner hidden-xs-down">
+    <div class="col-12">
+      <div *ngIf="windowType() == 'desktop' || windowType() == 'hires'">
+        <fox-dfp-ad [name]="'live'" [height]="50" [width]="960"></fox-dfp-ad>
+      </div>
+      <div *ngIf="windowType() == 'tablet'">
+        <fox-dfp-ad [name]="'live'" [height]="90" [width]="728"></fox-dfp-ad>
+      </div>
+    </div>
+  </div>
+
+  <!-- CAROUSEL -->
+  <div class="row m-0">
+    <div
+     class="col-12 carousel"
+     *ngIf="windowType() != 'mobile'">
+
+      <div *ngIf="carouselLoaded && eventsLive.length > 2" class="carousel-container">
+        <ks-swiper-container [options]="carouselOptions">
+
+          <ks-swiper-slide *ngFor="let event of eventsLive">
+            <span class="event-id invisible">{{event.id}}</span>
+            <fox-single-event
+              class="col-sm-12 col-lg-3"
+              [loading]="loadingEvent == event.id"
+              [showAs]="carouselShowAs"
+              [isLive]="isLive"
+              [event]="event"
+              [imgOffset]="5000">
+            </fox-single-event>
+          </ks-swiper-slide>
+
+        </ks-swiper-container>
+
+        <div class="arrow arrow-left" [ngClass]="{'invisible': (eventsLive.length <= 3)}" *ngIf="eventsLive" (click)="movePrev()"></div>
+        <div class="arrow arrow-right" [ngClass]="{'invisible': (eventsLive.length <= 3)}" *ngIf="eventsLive" (click)="moveNext()"></div>
+      </div>
+
+      <div *ngIf="carouselLoaded && eventsLive.length <= 2" class="container few-container">
+        <fox-single-event
+          *ngFor="let event of eventsLive"
+          [ngClass]="{
+            'single-card': (eventsLive.length == 1),
+            'col-sm-6 card-separator': (eventsLive.length == 2)
+            }"
+          (click)="playEvent(event)"
+          [loading]="loadingEvent == event.id"
+          [showAs]="carouselShowAs"
+          [isLive]="isLive"
+          [event]="event">
+        </fox-single-event>
+      </div>
+
+      <div *ngIf="!carouselLoaded" class="carousel-placeholder">
+      </div>
+    </div>
+
+    <div *ngIf="windowType() == 'mobile' && carouselLoaded"
+      class="col-12 px-0 mb-4">
+      <fox-single-event
+        *ngFor="let event of eventsLive"
+        class="col-sm-12"
+        (click)="playEvent(event)"
+        [loading]="loadingEvent == event.id"
+        [showAs]="carouselShowAs"
+        [isLive]="isLive"
+        [event]="event">
+      </fox-single-event>
+    </div>
+    <div *ngIf="windowType() == 'mobile' && !carouselLoaded"
+      class="col-12 px-0 mb-4">
+      <fox-single-event
+        class="col-sm-12"
+        [isEmpty]="true"
+        [showAs]="carouselShowAs">
+      </fox-single-event>
+    </div>
+  </div>
+
+  <!-- ADS -->
+  <div class="row m-0">
+    <div class="col-12" *ngIf="windowType() == 'mobile'">
+      <fox-dfp-ad [name]="'live'" [height]="50" [width]="300"></fox-dfp-ad>
+    </div>
+  </div>
+
+  <div
+    class="row mx-0 my-4">
+    <div class="col-12 section-title mx-auto">
+      <div class="mx-auto">
+        <fox-event-strip
+          *ngIf="stripsLoaded && eventsTodayLater.length"
+         [title]="dateTitles.todayLater"
+         [events]="eventsTodayLater"></fox-event-strip>
+        <fox-event-strip
+          *ngIf="!stripsLoaded"
+          [title]="dateTitles.todayLater"
+          [isEmpty]="true"></fox-event-strip>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADS -->
+  <div class="row m-0">
+    <div class="col-12" *ngIf="windowType() == 'mobile'">
+      <fox-dfp-ad [name]="'live'" [height]="250" [width]="300"></fox-dfp-ad>
+    </div>
+    <div class="col-12" *ngIf="windowType() == 'tablet'">
+      <fox-dfp-ad [name]="'live'" [height]="90" [width]="728"></fox-dfp-ad>
+    </div>
+  </div>
+
+  <div
+    class="row mx-0 my-4">
+    <div class="col-12 section-title mx-auto">
+      <div class="mx-auto">
+        <fox-event-strip
+          *ngIf="stripsLoaded && eventsTomorrow.length"
+         [title]="dateTitles.tomorrow"
+         [events]="eventsTomorrow"></fox-event-strip>
+        <fox-event-strip
+          *ngIf="!stripsLoaded"
+          [title]="dateTitles.tomorrow"
+          [isEmpty]="true"></fox-event-strip>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADS -->
+  <div class="row m-0" *ngIf="windowType() != 'mobile'">
+    <div class="col-12">
+      <fox-dfp-ad [name]="'live'" [height]="90" [width]="728"></fox-dfp-ad>
+    </div>
+  </div>
+  <div class="row m-0" *ngIf="windowType() == 'mobile'">
+    <div class="col-12">
+      <fox-dfp-ad [name]="'live'" [height]="50" [width]="300"></fox-dfp-ad>
+    </div>
+  </div>
+
+  <div
+    class="row mx-0 my-4">
+    <div class="col-12 section-title mx-auto">
+      <div class="mx-auto">
+        <fox-event-strip
+          *ngIf="stripsLoaded && eventsThirdDayFromNow.length"
+         [title]="dateTitles.thirdDayFromNow"
+         [events]="eventsThirdDayFromNow"></fox-event-strip>
+        <fox-event-strip
+          *ngIf="!stripsLoaded"
+          [title]="dateTitles.thirdDayFromNow"
+          [isEmpty]="true"></fox-event-strip>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADS -->
+  <div class="row m-0">
+    <div class="col-12" *ngIf="windowType() == 'mobile'">
+      <fox-dfp-ad [name]="'live'" [height]="250" [width]="300"></fox-dfp-ad>
+    </div>
+    <div class="col-12" *ngIf="windowType() == 'tablet'">
+      <fox-dfp-ad [name]="'live'" [height]="90" [width]="728"></fox-dfp-ad>
+    </div>
+  </div>
+
+  <div
+    class="row mx-0 my-4">
+    <div class="col-12 section-title mx-auto">
+      <div class="mx-auto">
+        <fox-event-strip
+          *ngIf="stripsLoaded && eventsFourthDayFromNow.length"
+         [title]="dateTitles.fourthDayFromNow"
+         [events]="eventsFourthDayFromNow"></fox-event-strip>
+        <fox-event-strip
+          *ngIf="!stripsLoaded"
+          [title]="dateTitles.fourthDayFromNow"
+          [isEmpty]="true"></fox-event-strip>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADS -->
+  <div class="row m-0" *ngIf="windowType() != 'mobile'">
+    <div class="col-12">
+      <fox-dfp-ad [name]="'live'" [height]="90" [width]="728"></fox-dfp-ad>
+    </div>
+  </div>
+  <div class="row m-0" *ngIf="windowType() == 'mobile'">
+    <div class="col-12">
+      <fox-dfp-ad [name]="'live'" [height]="50" [width]="300"></fox-dfp-ad>
+    </div>
+  </div>
+
+  <div
+    class="row mx-0 my-4">
+    <div class="col-12 section-title mx-auto">
+      <div class="mx-auto">
+        <fox-event-strip
+          *ngIf="stripsLoaded && eventsFifthDayFromNow.length"
+         [title]="dateTitles.fifthDayFromNow"
+         [events]="eventsFifthDayFromNow"></fox-event-strip>
+        <fox-event-strip
+          *ngIf="!stripsLoaded"
+          [title]="dateTitles.fifthDayFromNow"
+          [isEmpty]="true"></fox-event-strip>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADS -->
+  <div class="row m-0" *ngIf="windowType() == 'mobile'">
+    <div class="col-12">
+      <fox-dfp-ad [name]="'live'" [height]="250" [width]="300"></fox-dfp-ad>
+    </div>
+  </div>
+  <div class="row m-0" *ngIf="windowType() != 'mobile'">
+    <div class="col-12">
+    </div>
+  </div>
+
+
+  <div
+    class="row mx-0 my-4">
+    <div class="col-12 section-title mx-auto">
+      <div class="mx-auto">
+        <fox-event-strip
+          *ngIf="stripsLoaded && eventsSixthDayFromNow.length"
+         [title]="dateTitles.sixthDayFromNow"
+         [events]="eventsSixthDayFromNow"></fox-event-strip>
+        <fox-event-strip
+          *ngIf="!stripsLoaded"
+          [title]="dateTitles.sixthDayFromNow"
+          [isEmpty]="true"></fox-event-strip>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADS -->
+  <div class="row m-0" *ngIf="windowType() == 'mobile'">
+    <div class="col-12">
+      <fox-dfp-ad [name]="'live'" [height]="50" [width]="300"></fox-dfp-ad>
+    </div>
+  </div>
+  <div class="row m-0" *ngIf="windowType() != 'mobile'">
+    <div class="col-12">
+    </div>
+  </div>
+
+  <div
+    class="row mx-0 my-4">
+    <div class="col-12 section-title mx-auto">
+      <div class="mx-auto">
+        <fox-event-strip
+          *ngIf="stripsLoaded && eventsSeventhDayFromNow.length"
+         [title]="dateTitles.seventhDayFromNow"
+         [events]="eventsSeventhDayFromNow"></fox-event-strip>
+        <fox-event-strip
+          *ngIf="!stripsLoaded"
+          [title]="dateTitles.seventhDayFromNow"
+          [isEmpty]="true"></fox-event-strip>
+      </div>
+    </div>
+  </div>
+
+</section>

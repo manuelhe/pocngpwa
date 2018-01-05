@@ -1,0 +1,44 @@
+<div [ngClass]="{'hidden': errorObj }" #videoContainer>
+</div>
+
+<div *ngIf="errorObj && errorObj.ready" class="blockError" [ngStyle]="setFallbackBackground()" #errorPlayer>
+  <div class="error-messages" *ngIf="!errorObj.specialError">
+    <h1>{{errorObj.title}}</h1>
+    <p [innerHtml]="errorObj.message"></p>
+    <a *ngIf="errorObj.errorTarget && errorObj.errorTarget.length"
+       class="button"
+       role="button"
+       (click)="fallbackButtonClick(errorObj.errorTarget)">
+      {{errorObj.errorTargetMessage}}
+    </a>
+  </div>
+
+  <div class="error-messages" *ngIf="errorObj.specialError && errorObj.id != 'COUNTDOWN'">
+    <h1>{{errorObj.title}}</h1>
+    <p [innerHtml]="errorObj.message"></p>
+    <a
+      class="button"
+      role="button"
+      (click)="fallbackButtonClick(errorObj.errorTarget)">
+      {{errorObj.errorTargetMessage}}
+    </a>
+  </div>
+
+  <div class="error-messages countdown-container" *ngIf="errorObj.specialError && errorObj.id == 'COUNTDOWN'">
+    <h1>{{ 'event_will_start' | translate }}</h1>
+    <div class="times">
+      <span>{{ days }}</span>
+      <span>{{ hours }}</span>
+      <span>{{ minutes }}</span>
+    </div>
+    <div class="names">
+      <span>D</span>
+      <span>HS</span>
+      <span>MIN</span>
+    </div>
+    <a role="button" class="button" *ngIf="errorObj.errorTarget && streamConfiguration.event.channel_info.logo_picture.length"
+       (click)="fallbackButtonClick(errorObj.errorTarget)">{{ 'see_online_channel' | translate }}</a>
+  </div>
+
+  <div class="overlay"></div>
+</div>

@@ -1,0 +1,43 @@
+<section class="container-fluid">
+
+  <div class="row mx-0 my-4">
+    <div class="col-12 section-title mx-auto">
+      <div class="shows-container mx-auto" *ngIf="pageLoaded">
+        <fox-event-strip
+          [title]="dateTitles.todayLater"
+          [events]="eventsTodayLater"></fox-event-strip>
+      </div>
+      <div class="shows-container mx-auto" *ngIf="!pageLoaded">
+        <fox-event-strip
+          [title]="dateTitles.todayLater"
+          [isEmpty]="true"></fox-event-strip>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-0 my-4">
+    <div class="col-12 section-title mx-auto">
+      <div class="shows-container mx-auto" *ngIf="pageLoaded">
+        <fox-event-strip
+          [title]="dateTitles.tomorrow"
+          [events]="eventsTomorrow"></fox-event-strip>
+      </div>
+      <div class="shows-container mx-auto" *ngIf="!pageLoaded">
+        <fox-event-strip
+          [title]="dateTitles.tomorrow"
+          [isEmpty]="true"></fox-event-strip>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4">
+    <div class="col text-center">
+      <a
+        class="todos-btn btn btn-primary"
+        [routerLink]="['/']" 
+        role="button">
+        VER TODOS
+      </a>
+    </div>
+  </div>
+</section>

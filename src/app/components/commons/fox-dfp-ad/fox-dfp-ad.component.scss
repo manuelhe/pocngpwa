@@ -1,0 +1,9 @@
+:host {
+  div {
+    text-align: center;
+
+    /deep/ div iframe {
+      margin-top: 20px;
+    }
+  }
+}

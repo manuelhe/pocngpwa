@@ -24,8 +24,4 @@ export class StreamConfigurationFullScreen implements Action {
   constructor(public payload: StreamConfigurationModel) {}
 }
 
-export type StreamConfigurationActions = StreamConfigurationPreload 
-  | StreamConfigurationLoadError
-  | StreamConfigurationSetStreaming
-  | StreamConfigurationSetEvent
-  | StreamConfigurationFullScreen
+export type StreamConfigurationActions = StreamConfigurationPreload | StreamConfigurationLoadError | StreamConfigurationSetStreaming | StreamConfigurationSetEvent | StreamConfigurationFullScreen

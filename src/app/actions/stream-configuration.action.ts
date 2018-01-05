@@ -18,7 +18,7 @@ export class StreamConfigurationSetEvent implements Action {
   type = FOX_CONSTANTS.STREAM_CONFIGURATION.SET_EVENT_AUTH;
   constructor(public payload: StreamConfigurationModel) {}
 }
-}
+
 export class StreamConfigurationFullScreen implements Action {
   type = FOX_CONSTANTS.STREAM_CONFIGURATION.ALLOW_FULL_SCREEN;
   constructor(public payload: StreamConfigurationModel) {}

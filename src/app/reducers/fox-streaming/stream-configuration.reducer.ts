@@ -1,8 +1,8 @@
 import {StreamConfigurationModel} from '../../models/fox-streaming/stream-configuration.model';
 import {FOX_CONSTANTS} from '../common/fox-constants';
-import {Action} from '@ngrx/store';
+import { StreamConfigurationActions } from '../../actions/stream-configuration.action';
 
-export function streamConfiguration(state: StreamConfigurationModel, action: Action): StreamConfigurationModel {
+export function streamConfiguration(state: StreamConfigurationModel, action: StreamConfigurationActions): StreamConfigurationModel {
   switch (action.type) {
     case FOX_CONSTANTS.STREAM_CONFIGURATION.PRELOAD_CONFIGURATION:
       return Object.assign({}, state, action.payload);

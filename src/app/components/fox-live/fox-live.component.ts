@@ -4,7 +4,7 @@ import { KSSwiperContainer } from '../../../assets/libs/ks-swiper/dist';
 import { FoxEventService } from '../../services/fox-event/fox-event.service';
 import { MobileInfoService } from '../../services/common/mobile-info.service';
 import { TranslateService } from '@ngx-translate/core';
-import { GeolocationService } from 'app/services/geolocation/geolocation.service';
+import { GeolocationService } from '../../services/geolocation/geolocation.service';
 import { FoxUserService } from '../../services/fox-user/fox-user.service';
 import { TrackingInformationService } from '../../services/common/tracking-information.service';
 

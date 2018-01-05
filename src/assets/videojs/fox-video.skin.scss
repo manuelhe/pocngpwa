@@ -1,0 +1,186 @@
+$primary-background-color: #000;
+$slider-color: #0078FF;
+$seeker-bg-color: #DFD27C;
+
+
+@font-face {
+  font-family: 'foxPlayerIcons';
+  src:  url('fonts/icomoon.eot?47b7ni');
+  src:  url('fonts/icomoon.eot?47b7ni#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?47b7ni') format('truetype'),
+    url('fonts/icomoon.woff?47b7ni') format('woff'),
+    url('fonts/icomoon.svg?47b7ni#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@mixin transition ($string: all 1s linear) {
+  /* transition *///
+  -webkit-transition: $string;
+     -moz-transition: $string;
+       -o-transition: $string;
+          transition: $string;
+}
+
+@mixin icon($value) {
+  font-family: foxPlayerIcons;
+  font-weight: normal;
+  font-style: normal;
+  &:before {
+    content: $value;
+    color: #fff;
+  }
+}
+
+.video-js.fox-player-skin {
+  font-size: 11.4px;
+
+  button:focus {
+    outline: none;
+  }
+
+  .vjs-big-play-button {
+    display: none;
+  }
+
+  .vjs-control-bar {
+    z-index: 1;
+    // background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 100%); /* FF3.6-15 */
+    // background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.5) 100%); /* Chrome10-25,Safari5.1-6 */
+    // background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.5) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#80000000',GradientType=0 ); /* IE6-9 */
+    background: transparent;
+    .vjs-mute-control {
+      margin-left: 2px;
+    }
+    .vjs-play-control {
+      margin-left: 17px;
+    }
+    .vjs-fullscreen-control {
+      position: absolute;
+      right: 13px;
+    }
+  }
+
+  .vjs-progress-control {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: auto;
+    font-size: 1em;
+    height: 1em;
+    /* Set above the rest of the controls. *///
+    top: -1em;
+
+    /* Shrink the bar slower than it grows. *///
+    @include transition(all 0.4s);
+
+    .vjs-progress-holder {
+      .vjs-play-progress {
+        background-color: $slider-color;
+      }
+      .vjs-mouse-display {
+        background-color: $seeker-bg-color;
+      }
+    }
+  }
+
+  .vjs-seek-handle {
+    width: 1.5em;
+    height: 100%;
+    &:before {
+      padding-top: 0.1em /* Minor adjustment */;
+    }
+  }
+
+
+}
+
+.vjs-button > .vjs-icon-placeholder:before {
+  font-size: 16px;
+  line-height: 35px;
+}
+.vjs-button > .vjs-icon-placeholder:hover {
+  opacity: 0.8;
+}
+
+.vjs-icon-volume-mute, .video-js .vjs-mute-control.vjs-vol-0 .vjs-icon-placeholder {
+  @include icon("\e902");
+}
+
+.vjs-icon-volume-low, .video-js .vjs-mute-control.vjs-vol-1 .vjs-icon-placeholder {
+  @include icon("\e907");
+}
+
+.vjs-icon-volume-mid, .video-js .vjs-mute-control.vjs-vol-2 .vjs-icon-placeholder {
+  @include icon("\e906");
+}
+
+.vjs-icon-volume-high, .video-js .vjs-mute-control .vjs-icon-placeholder {
+  @include icon("\e906");
+}
+
+.vjs-icon-fullscreen-enter, .video-js .vjs-fullscreen-control .vjs-icon-placeholder {
+  @include icon("\e901");
+}
+
+.vjs-icon-fullscreen-exit, .video-js.vjs-fullscreen .vjs-fullscreen-control .vjs-icon-placeholder {
+  @include icon("\e900");
+}
+
+.vjs-icon-play, .video-js .vjs-big-play-button .vjs-icon-placeholder:before, .video-js .vjs-play-control .vjs-icon-placeholder {
+  font-family: foxPlayerIcons;
+  font-weight: normal;
+  font-style: normal;
+}
+
+.vjs-control-bar{
+  .vjs-play-control {
+    width: 2.9em;
+  }
+  .vjs-fullscreen-control, .vjs-volume-panel, .vjs-mute-control {
+    width: 3em;
+  }
+}
+
+.vjs-icon-play:before, .video-js .vjs-big-play-button .vjs-icon-placeholder:before, .video-js .vjs-play-control .vjs-icon-placeholder:before {
+  content: "\e905";
+  color: #fff
+}
+
+.vjs-icon-pause, .video-js .vjs-play-control.vjs-playing .vjs-icon-placeholder {
+  @include icon("\e904");
+}
+
+.vjs-slider-horizontal .vjs-volume-level {
+  height: 3px;
+}
+
+.video-js .vjs-volume-level:before {
+  font-size: 11px;
+}
+
+.vjs-volume-bar.vjs-slider-horizontal {
+  height: 3px;
+  background-color: rgba(255,255,255,0.5);
+  margin-left: 0px;
+}
+
+
+.video-js .vjs-custom-gradient {
+  display: none;
+  height: 64px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.5) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.5) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#80000000',GradientType=0 ); /* IE6-9 */
+}
+
+.video-js.vjs-paused.vjs-has-started .vjs-custom-gradient,
+.video-js.vjs-user-active.vjs-has-started .vjs-custom-gradient{
+  display: block;
+}

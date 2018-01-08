@@ -11,11 +11,10 @@ const ROUTES: Routes = [
     component: FoxLiveComponent,
     pathMatch: 'full'
   },
-  // {
-  //   path: '',
-  //   component: NewsComponent,
-  //   pathMatch: 'full'
-  // },
+   {
+     path: 'news',
+     component: NewsComponent
+   },
   {
     path: 'news/:id',
     component: NewsDetailComponent

@@ -56,6 +56,15 @@ import { FoxStreamingInformationComponent } from './components/fox-streaming/fox
 import { FoxStreamingNowComponent } from './components/fox-streaming/fox-streaming-now/fox-streaming-now.component';
 import { FoxPlayerComponent } from './components/fox-streaming/fox-streaming-now/fox-player/fox-player.component';
 
+// External
+import { ModalModule, PopoverModule } from 'ngx-bootstrap';
+import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome';
+
+
+
+
+
+
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -114,6 +123,9 @@ export function HttpLoaderFactory(http: HttpClient) {
       }
     }),
     Ng2DeviceDetectorModule.forRoot(),
+    ModalModule.forRoot(),
+    PopoverModule.forRoot(),
+    Angular2FontawesomeModule
   ],
   providers: [
     MsgService,

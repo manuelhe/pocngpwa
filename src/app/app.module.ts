@@ -59,11 +59,15 @@ import { FoxPlayerComponent } from './components/fox-streaming/fox-streaming-now
 // External
 import { ModalModule, PopoverModule } from 'ngx-bootstrap';
 import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome';
+import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
+import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
+import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 
 
 
-
-
+const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+  suppressScrollX: true
+};
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -125,7 +129,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     Ng2DeviceDetectorModule.forRoot(),
     ModalModule.forRoot(),
     PopoverModule.forRoot(),
-    Angular2FontawesomeModule
+    Angular2FontawesomeModule,
+    PerfectScrollbarModule  
   ],
   providers: [
     MsgService,
